@@ -37,8 +37,10 @@ class DeviceViewSet(viewsets.ModelViewSet):
         device = self.get_object()
         device.is_checked_out = False
         device.checked_in_date = datetime.now()
+        device.checked_out_by = None  # Ensure checked_out_by is set to None
         device.save()
         return Response({'message': 'Device checked in successfully'}, status=status.HTTP_200_OK)
+
 
 class DeviceLogViewSet(viewsets.ModelViewSet):
     queryset = DeviceLog.objects.all()
