@@ -55,8 +55,8 @@ class SubscriptionViewSet(viewsets.ModelViewSet):
         serializer = self.get_serializer(data=request.data)
         serializer.is_valid(raise_exception=True)
 
-        # Here, you would typically integrate with a payment gateway to process payment
-        # For now, we'll just assume payment is successful
+        # Here, i would typically integrate with a payment gateway to process payment
+        # For now, i'll just assume payment is successful
 
         self.perform_create(serializer)
         headers = self.get_success_headers(serializer.data)
