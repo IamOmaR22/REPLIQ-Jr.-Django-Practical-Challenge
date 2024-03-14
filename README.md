@@ -1,4 +1,4 @@
-# Enterprise Device Management API
+# AssetTracker Device Management API
 ---
 This Django application provides an API for managing enterprise devices, employees, companies, device logs, and subscriptions. It allows companies to efficiently manage their devices and subscriptions for their employees.
 
