@@ -10,8 +10,7 @@ router.register(r'devicelogs', DeviceLogViewSet)
 urlpatterns = router.urls
 
 
-# API Endpoints
-# The following endpoints are available:
+# The following API Endpoints are available:
 # 
 # /companies/ - GET, POST
 # /companies/{id}/ - GET, PUT, DELETE
@@ -24,4 +23,24 @@ urlpatterns = router.urls
 # /devices/{id}/check_out/ - POST
 # /devices/{id}/check_in/ - POST
 #
-# The API is now complete and ready for use. You can test the API using the Django admin interface or by using the Django REST framework's browsable API. You can also use the Swagger or ReDoc UIs to test the API.
+# The API is now complete and ready for use. You can test the API using the Django admin interface or by using the Django REST framework's browsable API. 
+#You can also use the Swagger or ReDoc UIs to test the API. I implemented swagger and redoc in the asset_tracker/urls.py file.
+# Endpoints for the API are as follows:
+#
+# /admin/ - Django admin interface
+# /companies/ - List of companies
+# /employees/ - List of employees
+# /devices/ - List of devices
+# /devicelogs/ - List of device logs
+# /swagger/ - Swagger UI
+# /redoc/ - ReDoc UI
+#
+# You can access the API using the following URLs:
+#
+# http://localhost:8000/admin/
+# http://localhost:8000/companies/
+# http://localhost:8000/employees/
+# http://localhost:8000/devices/
+# http://localhost:8000/devicelogs/
+# http://localhost:8000/swagger/
+# http://localhost:8000/redoc/
