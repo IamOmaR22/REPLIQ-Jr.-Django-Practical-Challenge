@@ -2,8 +2,8 @@ from rest_framework import viewsets, status
 from rest_framework.decorators import action
 from rest_framework.response import Response
 from datetime import datetime
-from .models import Company, Employee, Device, DeviceLog
-from .serializers import CompanySerializer, EmployeeSerializer, DeviceSerializer, DeviceLogSerializer
+from .models import Company, Employee, Device, DeviceLog, Subscription
+from .serializers import CompanySerializer, EmployeeSerializer, DeviceSerializer, DeviceLogSerializer, SubscriptionSerializer
 
 class CompanyViewSet(viewsets.ModelViewSet):
     queryset = Company.objects.all()
@@ -45,3 +45,20 @@ class DeviceViewSet(viewsets.ModelViewSet):
 class DeviceLogViewSet(viewsets.ModelViewSet):
     queryset = DeviceLog.objects.all()
     serializer_class = DeviceLogSerializer
+
+
+class SubscriptionViewSet(viewsets.ModelViewSet):
+    queryset = Subscription.objects.all()
+    serializer_class = SubscriptionSerializer
+
+    def create(self, request, *args, **kwargs):
+        serializer = self.get_serializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+
+        # Here, you would typically integrate with a payment gateway to process payment
+        # For now, we'll just assume payment is successful
+
+        self.perform_create(serializer)
+        headers = self.get_success_headers(serializer.data)
+        return Response(serializer.data, status=status.HTTP_201_CREATED, headers=headers)
+

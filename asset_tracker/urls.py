@@ -10,7 +10,7 @@ schema_view = get_schema_view(
         default_version='v1',
         description="API for managing corporate assets",
         terms_of_service="https://www.example.com/terms/",
-        contact=openapi.Contact(email="contact@example.com"),
+        contact=openapi.Contact(email="iamomar022@gmail.com"),
         license=openapi.License(name="BSD License"),
     ),
     public=True,

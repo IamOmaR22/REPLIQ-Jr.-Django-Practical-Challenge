@@ -37,3 +37,14 @@ class DeviceLog(models.Model):
 
     def __str__(self):
         return f"{self.device.name} - Checked Out by: {self.checked_out_by.user.username}"
+
+
+class Subscription(models.Model):
+    company = models.ForeignKey(Company, on_delete=models.CASCADE, related_name='subscriptions')
+    plan = models.CharField(max_length=100)
+    price = models.DecimalField(max_digits=8, decimal_places=2)
+    start_date = models.DateField()
+    end_date = models.DateField()
+
+    def __str__(self):
+        return f"{self.company.name} - Plan: {self.plan}"
