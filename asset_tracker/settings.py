@@ -40,6 +40,7 @@ INSTALLED_APPS = [
 
     'rest_framework',
     'assets_app.apps.AssetsAppConfig',
+    'drf_yasg',
 ]
 
 MIDDLEWARE = [
